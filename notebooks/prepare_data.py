@@ -166,4 +166,4 @@ if __name__ == "__main__":
             )
 
     print()
-    print("Pripremaljeni podaci za pokretanje modela")
+    print("Pripremljeni podaci za pokretanje modela")
