@@ -15,6 +15,10 @@ def load_json(path):
     return data
 
 def save_json(data, path):
+    output_folder = os.path.dirname(path)
+    if output_folder:
+        os.makedirs(output_folder, exist_ok=True)
+
     with open(path, "w") as f:
         json.dump(data, f)
 
@@ -22,7 +26,7 @@ def create_inverse_vocabularies(vocabs):
     inverse_vocabs = {}
 
     for property_name in MUSIC_EVENT_PROPERTIES:
-        inverse_vocabs[property_name] = {int(number): value for value, number in vocabs.items()}
+        inverse_vocabs[property_name] = {int(number): value for value, number in vocabs[property_name].items()}
     return inverse_vocabs
 
 def get_encoded_value(property_value, property_vocab):
@@ -148,7 +152,7 @@ def calculate_measure_number(previous_event, position_in_measure):
     previous_measure = int(previous_event.get("measure", 1))
     previous_position = float(previous_event.get("position_in_measure", 0.0))
 
-    if position_in_measure < previous_event:
+    if position_in_measure < previous_position:
         return previous_measure + 1
     
     return previous_measure
@@ -240,7 +244,7 @@ def generate_music(model_path, vocabularies_path, unfinished_composition_path,
         if(event_number + 1) % 50 == 0:
             print(f"Generisano {event_number + 1} dogadjaja")
 
-    save_json(all_events, generated_json_path)
+    save_json(generated_events, generated_json_path)
     events_to_midi(all_events, generated_midi_path)
 
     print(f"\nGenerisani JSON sacuvan: {generated_json_path}")
@@ -249,10 +253,45 @@ def generate_music(model_path, vocabularies_path, unfinished_composition_path,
 
 
 if __name__ == "__main__":
-    generate_music(
-        model_path="models/bach_seq_16.keras",
-        vocabularies_path="data/prepared/bach/seq_16/vocabularies.json",
-        unfinished_composition_path="data/parsed/bach/unfinished/unfinished_fugue.json",
-        generated_json_path="generated/bach_generated_events.json",
-        generated_midi_path="generated/bach_completed_fugue.mid"
-    )
+
+    unfinished_compositions = [
+        {
+            "composer": "bach",
+            "composition_name": "unfinished_fugue",
+            "json_path": "data/parsed/bach/unfinished/unfinished_fugue.json"
+        },
+        {
+            "composer": "schubert",
+            "composition_name": "d759_movement1",
+            "json_path": "data/parsed/schubert/unfinished/d759_movement1.json"
+        },
+        {
+            "composer": "schubert",
+            "composition_name": "d759_movement2",
+            "json_path": "data/parsed/schubert/unfinished/d759_movement2.json"
+        }
+    ]
+
+    sequence_lengths = [16, 32]
+
+    for composition in unfinished_compositions:
+        composer = composition["composer"]
+        composition_name = composition["composition_name"]
+
+        for sequence_length in sequence_lengths:
+            print("=" * 60)
+            print(f"Generisanje kompozicije: {composition_name}")
+            print(f"Kompozitor: {composer.capitalize()}")
+            print(f"Duzina sekvence: {sequence_length}")
+            print("=" * 60)
+
+            generate_music(
+                model_path=f"models/{composer}_seq_{sequence_length}.keras",
+                vocabularies_path=f"data/prepared/{composer}/seq_{sequence_length}/vocabularies.json",
+                unfinished_composition_path=composition["json_path"],
+                generated_json_path=f"generated/{composer}/{composition_name}_seq_{sequence_length}_generated.json",
+                generated_midi_path=f"generated/{composer}/{composition_name}_seq_{sequence_length}_generated.mid",
+                sequence_length=sequence_length
+            )
+
+    print("\nGenerisanje svih kompozicija je zavrseno")
