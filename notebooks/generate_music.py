@@ -258,12 +258,14 @@ if __name__ == "__main__":
         {
             "composer": "bach",
             "composition_name": "unfinished_fugue",
-            "json_path": "data/parsed/bach/unfinished/unfinished_fugue.json"
+            "json_path": "data/parsed/bach/unfinished/unfinished_fugue.json",
+            "max_generated_events": 2000
         },
         {
             "composer": "schubert",
             "composition_name": "d759_movement3_sketch",
-            "json_path": "data/parsed/schubert/unfinished/d759_movement3_sketch.json"
+            "json_path": "data/parsed/schubert/unfinished/d759_movement3_sketch.json",
+            "max_generated_events": 20000
         }
     ]
 
@@ -272,6 +274,7 @@ if __name__ == "__main__":
     for composition in unfinished_compositions:
         composer = composition["composer"]
         composition_name = composition["composition_name"]
+        max_generated_events = composition["max_generated_events"]
 
         for sequence_length in sequence_lengths:
             print("=" * 60)
@@ -286,7 +289,8 @@ if __name__ == "__main__":
                 unfinished_composition_path=composition["json_path"],
                 generated_json_path=f"generated/{composer}/{composition_name}_seq_{sequence_length}_generated.json",
                 generated_midi_path=f"generated/{composer}/{composition_name}_seq_{sequence_length}_generated.mid",
-                sequence_length=sequence_length
+                sequence_length=sequence_length,
+                max_generated_events=max_generated_events
             )
 
     print("\nGenerisanje svih kompozicija je zavrseno")
