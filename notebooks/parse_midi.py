@@ -184,4 +184,4 @@ if __name__ == "__main__":
         dataset_name="Schubert unfinished"
     )
 
-    print("Parsiranje kompoletno")
+    print("Parsiranje kompletno")

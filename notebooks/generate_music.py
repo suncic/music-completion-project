@@ -20,7 +20,7 @@ def save_json(data, path):
         os.makedirs(output_folder, exist_ok=True)
 
     with open(path, "w") as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
 def create_inverse_vocabularies(vocabs):
     inverse_vocabs = {}
