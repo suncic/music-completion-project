@@ -38,7 +38,7 @@ def load_prepared_data(folder):
     return inputs, outputs, vocabs
     
 
-def build_model(vocabularies, embedding_dim=64, recurrent_type="lstm", recurrent_units=128, 
+def build_model(vocabularies, sequence_length, embedding_dim=64, recurrent_type="lstm", recurrent_units=128, 
                 optimizer="adam", second_layer_units=None, learning_rate=0.001):
     
     network_inputs = {}
