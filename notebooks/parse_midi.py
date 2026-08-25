@@ -18,7 +18,6 @@ def get_tempo_changes(midi):
     flat_midi = midi.flatten()
     tempo_marks = flat_midi.getElementsByClass(tempo.MetronomeMark)
 
-    # kako znamo na kojem su mestu, odnosno sta ako imamo vise mesta sa istim obelezjem tempa?
     for tempo_mark in tempo_marks:
         bpm = tempo_mark.getQuarterBPM()
         if bpm is None:
