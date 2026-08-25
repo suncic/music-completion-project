@@ -226,6 +226,7 @@ data/
 # Trained models and experiment results
 models/
 results/
+generated/
 checkpoints/
 
 # Generated model and NumPy files
