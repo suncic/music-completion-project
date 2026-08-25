@@ -197,8 +197,8 @@ def create_next_music_event(model,  current_events, vocabularies, inverse_vocabu
     }
 
 def generate_music(model_path, vocabularies_path, unfinished_composition_path, 
-                   generated_json_path, generated_midi_path, sequence_length=16, 
-                   max_generated_events=500, temperature=0.8, random_seed=42):
+                   generated_json_path, generated_midi_path, sequence_length=16,
+                   max_generated_events=2000, temperature=0.8, random_seed=42):
     np.random.seed(random_seed)
     tf.random.set_seed(random_seed)
 
@@ -262,13 +262,8 @@ if __name__ == "__main__":
         },
         {
             "composer": "schubert",
-            "composition_name": "d759_movement1",
-            "json_path": "data/parsed/schubert/unfinished/d759_movement1.json"
-        },
-        {
-            "composer": "schubert",
-            "composition_name": "d759_movement2",
-            "json_path": "data/parsed/schubert/unfinished/d759_movement2.json"
+            "composition_name": "d759_movement3_sketch",
+            "json_path": "data/parsed/schubert/unfinished/d759_movement3_sketch.json"
         }
     ]
 
