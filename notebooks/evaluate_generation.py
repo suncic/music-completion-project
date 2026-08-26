@@ -70,8 +70,8 @@ def calculate_basic_statistics(music_events):
     pitches = {str(music_event["pitch"]) for music_event in music_events if music_event["pitch"] not in ["NONE", "UNK", "END"]}
     parts = {str(music_event["part"]) for music_event in music_events}
     instruments = {str(music_event["instrument"]) for music_event in music_events}
-    durations = {float(music_event["duration"]) for music_event in music_events}
-    time_shifts = {float(music_event["time_shift"]) for music_event in music_events}
+    durations = [float(music_event["duration"]) for music_event in music_events]
+    time_shifts = [float(music_event["time_shift"]) for music_event in music_events]
     zero_time_shift = sum(1 for time_shift in time_shifts if time_shift == 0)
 
     return {
@@ -260,25 +260,25 @@ def create_text_report(results):
         statistics = result["statistics"]
 
         report_lines.append("")
-        report_lines.append(f"Kompozitor: {result["composer"].capitalize()}")
-        report_lines.append(f"Kompozicija: {result["composition_name"]}")
-        report_lines.append(f"Duzina sekvence: {result["sequence_length"]}")
-        report_lines.append(f"Broj generisanih dogadjaja: {statistics["number_of_events"]}")
-        report_lines.append(f"Broj razlicitih visina nota: {statistics["unique_pitches"]}")
-        report_lines.append(f"Broj deonica: {statistics["number_of_parts"]}")
-        report_lines.append(f"Prosecno trajanje: {statistics["average_duration"]:.4f}")
-        report_lines.append(f"Prosecan time shift: {statistics["average_time_shift"]:.4f}")
-        report_lines.append(f"Udeo ponavljanja: {statistics["repetition_ratio"]:.4f}")
-        report_lines.append(f"Broj neispravnih dogadjaja: {result["number_of_invalid_events"]}")
-        report_lines.append(f"Prosecna udaljenost raspodela: {result["average_distribution_distance"]:.4f}")
-        report_lines.append(f"Zbirna ocena modela: {result["model_score"]:.4f}")
+        report_lines.append(f"Kompozitor: {result['composer'].capitalize()}")
+        report_lines.append(f"Kompozicija: {result['composition_name']}")
+        report_lines.append(f"Duzina sekvence: {result['sequence_length']}")
+        report_lines.append(f"Broj generisanih dogadjaja: {statistics['number_of_events']}")
+        report_lines.append(f"Broj razlicitih visina nota: {statistics['unique_pitches']}")
+        report_lines.append(f"Broj deonica: {statistics['number_of_parts']}")
+        report_lines.append(f"Prosecno trajanje: {statistics['average_duration']:.4f}")
+        report_lines.append(f"Prosecan time shift: {statistics['average_time_shift']:.4f}")
+        report_lines.append(f"Udeo ponavljanja: {statistics['repetition_ratio']:.4f}")
+        report_lines.append(f"Broj neispravnih dogadjaja: {result['number_of_invalid_events']}")
+        report_lines.append(f"Prosecna udaljenost raspodela: {result['average_distribution_distance']:.4f}")
+        report_lines.append(f"Zbirna ocena modela: {result['model_score']:.4f}")
         report_lines.append("Zakljucci:")
         for conclusion in result["conclusions"]:
             report_lines.append(f"- {conclusion}")
 
     if len(sorted_results) > 0:
         best_result = sorted_results[0]
-        report_lines.append(f"Najbolji rezultat prema automatskim metrikama: {best_result['composer'].capitalize()} - {best_result["composition_name"]} - sekvenca {best_result["sequence_length"]}")
+        report_lines.append(f"Najbolji rezultat prema automatskim metrikama: {best_result['composer'].capitalize()} - {best_result['composition_name']} - sekvenca {best_result['sequence_length']}")
 
     return "\n".join(report_lines)
 
