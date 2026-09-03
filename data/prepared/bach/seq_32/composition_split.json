@@ -1,0 +1,1 @@
+{"train": ["bwv114.7.json", "bwv102.7.json", "bwv104.6.json", "bwv113.8.json", "bwv115.6.json", "bwv112.5-sc.json", "bwv120.6.json", "bwv110.7.json", "bwv101.7.json", "bwv108.6.json", "bwv112.5.json", "bwv103.6.json", "bwv117.4.json", "bwv111.6.json", "bwv11.6.json", "bwv12.7.json"], "validation": ["bwv116.6.json", "bwv10.7.json"], "test": ["bwv1.6.json", "bwv119.9.json"]}

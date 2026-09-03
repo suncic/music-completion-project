@@ -1,0 +1,38 @@
+EVALUACIJA GENERISANIH KOMPOZICIJA
+
+Kompozitor: Schubert
+Kompozicija: d759_movement3_sketch
+Duzina sekvence: 32
+Broj generisanih dogadjaja: 355
+Broj razlicitih visina nota: 96
+Broj deonica: 14
+Prosecno trajanje: 0.5648
+Prosecan time shift: 0.0663
+Udeo ponavljanja: 0.0085
+Broj neispravnih dogadjaja: 0
+Prosecna udaljenost raspodela: 0.5830
+Zbirna ocena modela: 0.5915
+Zakljucci:
+- Svi generisani dogadjaji su tehnicki ispravni
+- Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja
+- Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora
+- Generisani nastavak koristi vise razlicitih visina tonova
+
+Kompozitor: Schubert
+Kompozicija: d759_movement3_sketch
+Duzina sekvence: 16
+Broj generisanih dogadjaja: 670
+Broj razlicitih visina nota: 73
+Broj deonica: 14
+Prosecno trajanje: 0.5445
+Prosecan time shift: 0.0914
+Udeo ponavljanja: 0.0239
+Broj neispravnih dogadjaja: 0
+Prosecna udaljenost raspodela: 0.6115
+Zbirna ocena modela: 0.6354
+Zakljucci:
+- Svi generisani dogadjaji su tehnicki ispravni
+- Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja
+- Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora
+- Generisani nastavak koristi vise razlicitih visina tonova
+Najbolji rezultat prema automatskim metrikama: Schubert - d759_movement3_sketch - sekvenca 32

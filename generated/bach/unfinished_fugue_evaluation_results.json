@@ -1,0 +1,74 @@
+[
+    {
+        "composer": "bach",
+        "composition_name": "unfinished_fugue",
+        "sequence_length": 16,
+        "generated_json_path": "generated/bach/unfinished_fugue_seq_16_generated.json",
+        "statistics": {
+            "number_of_events": 360,
+            "unique_pitches": 30,
+            "number_of_parts": 7,
+            "number_of_instruments": 5,
+            "average_duration": 0.7006944444444444,
+            "average_time_shift": 0.07361111111111111,
+            "zero_time_shift_ratio": 0.8361111111111111,
+            "repetition_ratio": 0.005571030640668524
+        },
+        "number_of_invalid_events": 0,
+        "invalid_events": [],
+        "distribution_distances": {
+            "type": 0.01966772066075372,
+            "pitch": 0.405737005105832,
+            "duration": 0.7142971579017536,
+            "time_shift": 0.8970881887812612,
+            "tempo": 0.45672854917953115,
+            "instrument": 0.7936951864367643,
+            "part": 0.241687261667837,
+            "position_in_measure": 0.926206011334991
+        },
+        "average_distribution_distance": 0.5568883851335904,
+        "model_score": 0.562459415774259,
+        "conclusions": [
+            "Svi generisani dogadjaji su tehnicki ispravni",
+            "Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja",
+            "Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora",
+            "Generisani nastavak koristi vise razlicitih visina tonova"
+        ]
+    },
+    {
+        "composer": "bach",
+        "composition_name": "unfinished_fugue",
+        "sequence_length": 32,
+        "generated_json_path": "generated/bach/unfinished_fugue_seq_32_generated.json",
+        "statistics": {
+            "number_of_events": 2000,
+            "unique_pitches": 36,
+            "number_of_parts": 7,
+            "number_of_instruments": 5,
+            "average_duration": 0.6185,
+            "average_time_shift": 0.034375,
+            "zero_time_shift_ratio": 0.911,
+            "repetition_ratio": 0.010505252626313157
+        },
+        "number_of_invalid_events": 0,
+        "invalid_events": [],
+        "distribution_distances": {
+            "type": 0.04594323978593265,
+            "pitch": 0.3756567428046781,
+            "duration": 0.674534472278381,
+            "time_shift": 0.9370094911892338,
+            "tempo": 0.4645970295847662,
+            "instrument": 0.7603837169532227,
+            "part": 0.296266422151779,
+            "position_in_measure": 0.9074377792731412
+        },
+        "average_distribution_distance": 0.5577286117526419,
+        "model_score": 0.5682338643789551,
+        "conclusions": [
+            "Svi generisani dogadjaji su tehnicki ispravni",
+            "Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja",
+            "Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora",
+            "Generisani nastavak koristi vise razlicitih visina tonova"
+        ]
+    }
+]

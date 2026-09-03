@@ -1,0 +1,1 @@
+{"train": ["symphony_4_3.json", "symphony_4_4.json", "d759_movement2.json", "symphony_4_1.json", "symphony_4_2.json"], "validation": ["d759_movement1.json"], "test": ["Lindenbaum.json"]}

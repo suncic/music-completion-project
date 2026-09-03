@@ -1,0 +1,74 @@
+[
+    {
+        "composer": "schubert",
+        "composition_name": "d759_movement3_sketch",
+        "sequence_length": 16,
+        "generated_json_path": "generated/schubert/d759_movement3_sketch_seq_16_generated.json",
+        "statistics": {
+            "number_of_events": 670,
+            "unique_pitches": 73,
+            "number_of_parts": 14,
+            "number_of_instruments": 13,
+            "average_duration": 0.5445273631840797,
+            "average_time_shift": 0.09135572139303481,
+            "zero_time_shift_ratio": 0.6029850746268657,
+            "repetition_ratio": 0.02391629297458894
+        },
+        "number_of_invalid_events": 0,
+        "invalid_events": [],
+        "distribution_distances": {
+            "type": 0.12146695517716956,
+            "pitch": 0.3939795059595621,
+            "duration": 0.7319101094599562,
+            "time_shift": 0.9150871359101443,
+            "tempo": 0.9021195497451157,
+            "instrument": 0.7220671316293388,
+            "part": 0.2082026812237459,
+            "position_in_measure": 0.8971262786847373
+        },
+        "average_distribution_distance": 0.6114949184737213,
+        "model_score": 0.6354112114483103,
+        "conclusions": [
+            "Svi generisani dogadjaji su tehnicki ispravni",
+            "Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja",
+            "Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora",
+            "Generisani nastavak koristi vise razlicitih visina tonova"
+        ]
+    },
+    {
+        "composer": "schubert",
+        "composition_name": "d759_movement3_sketch",
+        "sequence_length": 32,
+        "generated_json_path": "generated/schubert/d759_movement3_sketch_seq_32_generated.json",
+        "statistics": {
+            "number_of_events": 355,
+            "unique_pitches": 96,
+            "number_of_parts": 14,
+            "number_of_instruments": 14,
+            "average_duration": 0.5647887323943662,
+            "average_time_shift": 0.06631455399061033,
+            "zero_time_shift_ratio": 0.7154929577464789,
+            "repetition_ratio": 0.00847457627118644
+        },
+        "number_of_invalid_events": 0,
+        "invalid_events": [],
+        "distribution_distances": {
+            "type": 0.21022207826708988,
+            "pitch": 0.47377351166176734,
+            "duration": 0.5216809511473216,
+            "time_shift": 0.8993011407427381,
+            "tempo": 0.8548898874792642,
+            "instrument": 0.7120868371299854,
+            "part": 0.16193658989996237,
+            "position_in_measure": 0.8302093304830899
+        },
+        "average_distribution_distance": 0.5830125408514023,
+        "model_score": 0.5914871171225887,
+        "conclusions": [
+            "Svi generisani dogadjaji su tehnicki ispravni",
+            "Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja",
+            "Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora",
+            "Generisani nastavak koristi vise razlicitih visina tonova"
+        ]
+    }
+]

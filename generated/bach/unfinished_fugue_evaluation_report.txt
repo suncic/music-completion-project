@@ -1,0 +1,38 @@
+EVALUACIJA GENERISANIH KOMPOZICIJA
+
+Kompozitor: Bach
+Kompozicija: unfinished_fugue
+Duzina sekvence: 16
+Broj generisanih dogadjaja: 360
+Broj razlicitih visina nota: 30
+Broj deonica: 7
+Prosecno trajanje: 0.7007
+Prosecan time shift: 0.0736
+Udeo ponavljanja: 0.0056
+Broj neispravnih dogadjaja: 0
+Prosecna udaljenost raspodela: 0.5569
+Zbirna ocena modela: 0.5625
+Zakljucci:
+- Svi generisani dogadjaji su tehnicki ispravni
+- Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja
+- Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora
+- Generisani nastavak koristi vise razlicitih visina tonova
+
+Kompozitor: Bach
+Kompozicija: unfinished_fugue
+Duzina sekvence: 32
+Broj generisanih dogadjaja: 2000
+Broj razlicitih visina nota: 36
+Broj deonica: 7
+Prosecno trajanje: 0.6185
+Prosecan time shift: 0.0344
+Udeo ponavljanja: 0.0105
+Broj neispravnih dogadjaja: 0
+Prosecna udaljenost raspodela: 0.5577
+Zbirna ocena modela: 0.5682
+Zakljucci:
+- Svi generisani dogadjaji su tehnicki ispravni
+- Nije primeceno prekomerno neposredno ponavljanje istih dogadjaja
+- Raspodele muzickih dogadjaja se znatno razlikuju od zavrsenih dela kompozitora
+- Generisani nastavak koristi vise razlicitih visina tonova
+Najbolji rezultat prema automatskim metrikama: Bach - unfinished_fugue - sekvenca 16

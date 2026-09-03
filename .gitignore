@@ -220,13 +220,9 @@ __marimo__/
 # macOS
 .DS_Store
 
-# Project data
-data/
 
-# Trained models and experiment results
-models/
-results/
-generated/
+
+
 checkpoints/
 
 # Generated model and NumPy files
