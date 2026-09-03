@@ -6,7 +6,7 @@ import tensorflow as tf
 
 from keras import Model
 from keras.layers import LSTM, GRU, Dense, Embedding, Input, Concatenate
-from keras.optimizers import Adam, SGD, RMSprop
+from keras.optimizers import Adam
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 
 from prepare_data import MUSIC_EVENT_PROPERTIES
@@ -38,8 +38,7 @@ def load_prepared_data(folder):
     return inputs, outputs, vocabs
     
 
-def build_model(vocabularies, sequence_length, embedding_dim=64, recurrent_type="lstm", recurrent_units=128, 
-                optimizer="adam", second_layer_units=None, learning_rate=0.001):
+def build_model(vocabularies, sequence_length, embedding_dim, recurrent_units, learning_rate):
     
     network_inputs = {}
     network_outputs = {}
@@ -55,30 +54,7 @@ def build_model(vocabularies, sequence_length, embedding_dim=64, recurrent_type=
         embedded_inputs.append(property_embedding)
 
     combined_embeddings = Concatenate(axis=-1, name="combined_embedding")(embedded_inputs)
-
-    if recurrent_type == "lstm":
-        if second_layer_units is None:
-            recurrent_output = LSTM(recurrent_units, name="lstm")(combined_embeddings)
-        else:
-            first_lstm_output = LSTM(recurrent_units, return_sequences=True, name="first_lstm")(combined_embeddings)
-            recurrent_output = LSTM(second_layer_units, name="second_lstm")(first_lstm_output)
-    elif recurrent_type == "gru":
-        if second_layer_units is None:
-            recurrent_output = GRU(recurrent_units, name="gru")(combined_embeddings)
-        else:
-            first_gru_output = GRU(recurrent_units, return_sequences=True, name="first_gru")(combined_embeddings)
-            recurrent_output = GRU(second_layer_units, name="second_gru")(first_gru_output)
-    else:
-        raise ValueError(f"Unknown recurrent type: {recurrent_type}")
-
-    if optimizer == 'adam':
-        opt = Adam(learning_rate=learning_rate)
-    elif optimizer == 'sgd':
-        opt = SGD(learning_rate=learning_rate)
-    elif optimizer == 'rmsprop':
-        opt = RMSprop(learning_rate=learning_rate)
-    else:
-        opt = optimizer
+    recurrent_output = LSTM(recurrent_units, name="lstm")(combined_embeddings)
 
     for property_name in MUSIC_EVENT_PROPERTIES:
         vocabulary_size = len(vocabularies[property_name])
@@ -89,7 +65,7 @@ def build_model(vocabularies, sequence_length, embedding_dim=64, recurrent_type=
         metrics[output_name] = ["accuracy", tf.keras.metrics.SparseTopKCategoricalAccuracy(k=min(3, vocabulary_size), name="top3_accuracy")]
 
     model = Model(inputs=network_inputs, outputs=network_outputs)
-    model.compile(optimizer=opt, loss=losses, metrics=metrics)
+    model.compile(optimizer=Adam(learning_rate=learning_rate), loss=losses, metrics=metrics)
     return model
 
 def prepare_inputs_for_model(inputs):
@@ -114,8 +90,8 @@ def save_test_results(test_results, test_results_path):
 
 
 def train_and_evaluate(composer_folder, model_save_path, sequence_length, recurrent_units=128,
-                        optimizer_name='adam', learning_rate=0.001, second_layer_units=None, random_seed=42,
-                        epochs=100, batch_size=32, recurrent_type="lstm", embedding_dim=64, patience=10):
+                        learning_rate=0.001, random_seed=42,epochs=100, batch_size=32, 
+                        embedding_dim=64, patience=10):
     
     set_random_seed(random_seed)
 
@@ -134,17 +110,14 @@ def train_and_evaluate(composer_folder, model_save_path, sequence_length, recurr
     print(f"Duzina sekvence: {sequence_length}")
     print(f"Broj rekurentnih jedinica: {recurrent_units}")
     print(f"Embedding dimenzija: {embedding_dim}")
-    print(f"Optimizer: {optimizer_name}")
+    print(f"Optimizer: Adam")
     print(f"Learning rate: {learning_rate}")
 
     model = build_model(
         vocabularies=vocabs, 
         sequence_length=sequence_length,
         embedding_dim=embedding_dim,
-        recurrent_type=recurrent_type, 
-        second_layer_units=second_layer_units, 
-        recurrent_units=recurrent_units, 
-        optimizer=optimizer_name, 
+        recurrent_units=recurrent_units,
         learning_rate=learning_rate
     )
     model.summary()

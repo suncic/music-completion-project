@@ -172,12 +172,12 @@ def calculate_jensen_shannon_distance(first_distribution, second_distribution):
     divergence = (first_divergence + second_divergence) / 2
     return float(math.sqrt(divergence))
 
-def calculate_distribution_distances(generated_events, reference_events):
+def calculate_distribution_distances(generated_events, completed_compositions_events):
     distances = {}
 
     for property_name in MUSIC_EVENT_PROPERTIES:
         generated_distribution = create_property_distribution(generated_events, property_name)
-        reference_distribution = create_property_distribution(reference_events, property_name)
+        reference_distribution = create_property_distribution(completed_compositions_events, property_name)
         distances[property_name] = calculate_jensen_shannon_distance(generated_distribution, reference_distribution)
     return distances
 
@@ -231,10 +231,10 @@ def calculate_model_score(statistics, invalid_events, distribution_distances):
 def evaluate_generated_composition(composer, composition_name, sequence_length, generated_json_path, completed_compositions_folder):
     print(f"Evaluacija {composition_name} sekvenca: {sequence_length}")
     generated_events = load_json(generated_json_path)
-    reference_events = load_compositions_from_folder(completed_compositions_folder)
+    completed_compositions_events = load_compositions_from_folder(completed_compositions_folder)
     statistics = calculate_basic_statistics(generated_events)
     invalid_events = find_invalid_events(generated_events)
-    distribution_distances = calculate_distribution_distances(generated_events, reference_events)
+    distribution_distances = calculate_distribution_distances(generated_events, completed_compositions_events)
     conclusions = create_conclusions(statistics, invalid_events, distribution_distances)
     model_score = calculate_model_score(statistics, invalid_events, distribution_distances)
     return {
