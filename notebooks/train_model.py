@@ -60,9 +60,8 @@ def build_model(vocabularies, sequence_length, embedding_dim, recurrent_units, l
         vocabulary_size = len(vocabularies[property_name])
         property_output = Dense(vocabulary_size, activation="softmax", name=f"{property_name}_output")(recurrent_output)
         network_outputs[f"{property_name}_output"] = property_output
-        output_name = f"{property_name}_output"
-        losses[output_name] = "sparse_categorical_crossentropy"
-        metrics[output_name] = ["accuracy", tf.keras.metrics.SparseTopKCategoricalAccuracy(k=min(3, vocabulary_size), name="top3_accuracy")]
+        losses[f"{property_name}_output"] = "sparse_categorical_crossentropy"
+        metrics[f"{property_name}_output"] = ["accuracy", tf.keras.metrics.SparseTopKCategoricalAccuracy(k=min(3, vocabulary_size), name="top3_accuracy")]
 
     model = Model(inputs=network_inputs, outputs=network_outputs)
     model.compile(optimizer=Adam(learning_rate=learning_rate), loss=losses, metrics=metrics)
