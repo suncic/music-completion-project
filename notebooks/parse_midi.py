@@ -62,7 +62,6 @@ def get_measure_information(music_event, part):
     position_in_measure = find_nearest_allowed_value(max(0.0, music_event_start - measure_of_event_start), TIME_SHIFTS)
     return measure_number, position_in_measure
 
-
 def parse_midi_file(file_path):
     music_events = []
 

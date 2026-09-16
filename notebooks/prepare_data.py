@@ -120,7 +120,6 @@ def save_composition_split(output_folder, train_compositions, validation_composi
     with open(os.path.join(output_folder,"composition_split.json"), "w") as f:
         json.dump(composition_split, f)
 
-
 def prepare_composer(parsed_folder, output_folder, composer_name, sequence_length=16):
     print(f"Pripremanje podataka za kompozitora: {composer_name}")
 

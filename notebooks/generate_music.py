@@ -251,7 +251,6 @@ def generate_music(model_path, vocabularies_path, unfinished_composition_path,
     print(f"\nGenerisani MIDI sacuvan: {generated_midi_path}")
     print(f"\nUkupno generisno {len(generated_events)} muzickih dogadjaja")
 
-
 if __name__ == "__main__":
 
     unfinished_compositions = [
