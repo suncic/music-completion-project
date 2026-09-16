@@ -35,8 +35,7 @@ def load_prepared_data(folder):
     with open(os.path.join(folder, "vocabularies.json"), "r") as file:
         vocabs = json.load(file)
 
-    return inputs, outputs, vocabs
-    
+    return inputs, outputs, vocabs  
 
 def build_model(vocabularies, sequence_length, embedding_dim, recurrent_units, learning_rate):
     
@@ -86,7 +85,6 @@ def save_test_results(test_results, test_results_path):
     results = {metric_name: float(metric_value) for metric_name, metric_value in test_results.items()}
     with open(test_results_path, "w") as f:
         json.dump(results, f)
-
 
 def train_and_evaluate(composer_folder, model_save_path, sequence_length, recurrent_units=128,
                         learning_rate=0.001, random_seed=42,epochs=100, batch_size=32, 
@@ -156,7 +154,6 @@ def train_and_evaluate(composer_folder, model_save_path, sequence_length, recurr
     print(f"Test rezultati sacuvani: {test_results_path}")
 
     return training_history, test_results
-
 
 if __name__ == "__main__":
 
